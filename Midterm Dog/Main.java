@@ -1,15 +1,18 @@
 import java.util.Scanner;
+
 // NOTE: EXAM ASKS FOR METHOD "ISEQUALTO", WE ASSUME THIS REFERS TO "EQUALS TO" WHICH ONLY CHECKS ID
 public class Main {
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
-        System.out.println("Enter id: ");
+        System.out.print("Enter id: ");
         int id         = scnr.nextInt();
         String temp = scnr.nextLine();
-        System.out.println("Breed: ");
+        System.out.print("Breed: ");
         String breed   = scnr.nextLine();
-    //    String temp    = scnr.next();
-        System.out.println("Age (years): ");
+        System.out.print("Age (years): ");
         double age     = scnr.nextDouble();
 
         
