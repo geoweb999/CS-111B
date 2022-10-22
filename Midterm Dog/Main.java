@@ -32,6 +32,7 @@ public class Main {
         if (d1.compatibleAges(d2)) {
             System.out.println("compatible");
         }
+        scnr.close();
        
     }    
 }
