@@ -87,7 +87,7 @@ class Main extends JFrame implements ActionListener {
     add(correctButton, positionConst);
 
     // Get Ready to play the game
-    this.guesser = new RandomNumberGuesser(1, 100);
+    this.guesser = new NumberGuesser(1, 100);
     this.guessField.setText("" + guesser.getCurrentGuess());
   }
 
@@ -109,19 +109,39 @@ class Main extends JFrame implements ActionListener {
     // that refer to your four buttons. Here we check for the
     // lower button
     if (buttonPressed == this.lowerButton) {
-      guessField.setText("lower!");
+      //guessField.setText("lower!"); 
+      try {
+        guesser.lower();
+        this.guessField.setText("" + guesser.getCurrentGuess());
+      }
+      catch (NumberGuesserIllegalStateException exception) {
+        JOptionPane.showInternalMessageDialog(null, "CHEAT, starting new game!", "Notice", JOptionPane.INFORMATION_MESSAGE);
+        guesser.reset();
+        this.guessField.setText("" + guesser.getCurrentGuess());
+      }
     }
 
     // Notice that right now the buttons write strings into the
     // guess Field. That isn't very useful. Instead you should
     // use a number guesser to put the next guess in.
     if (buttonPressed == this.higherButton) {
-      guessField.setText("higher!");
+      //guessField.setText("higher!");
+      try {
+        guesser.higher();
+        this.guessField.setText("" + guesser.getCurrentGuess());
+      }
+      catch (NumberGuesserIllegalStateException exception) {
+        JOptionPane.showInternalMessageDialog(null, "CHEAT, starting new game!", "Notice", JOptionPane.INFORMATION_MESSAGE);
+        guesser.reset(); 
+        this.guessField.setText("" + guesser.getCurrentGuess());       
+      }
     }
 
     // for correct and reset, no need for a try/catch
     if (buttonPressed == this.correctButton) {
-      guessField.setText("correct!");
+      //guessField.setText("correct!");
+      JOptionPane.showInternalMessageDialog(null, "Correct! Good bye!", "Notice", JOptionPane.INFORMATION_MESSAGE);
+      System.exit(0);
     }
 
     // Here is the reset button. Right now it shows a
@@ -131,7 +151,9 @@ class Main extends JFrame implements ActionListener {
     // But.. You can use similar JOptionPane when you catch the user
     // cheating
     if (buttonPressed == this.resetButton) {
-      JOptionPane.showInternalMessageDialog(null, "Reset!", "Notice", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showInternalMessageDialog(null, "Reset, starting new game!", "Notice", JOptionPane.INFORMATION_MESSAGE);
+      guesser.reset();
+      this.guessField.setText("" + guesser.getCurrentGuess());
     }
   }
 
