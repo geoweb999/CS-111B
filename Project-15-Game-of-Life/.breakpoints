@@ -1,0 +1,26 @@
+{
+  "files": {
+    "BorgCell.java": [
+      {
+        "id": "f41c267e-429b-4ccb-ae01-9233fc410acf",
+        "line": 29,
+        "version": 1765,
+        "index": 707
+      }
+    ],
+    "ConwayWorld.java": [
+      {
+        "id": "f7131196-e98a-4f7e-9d83-8cbdfe9bbab0",
+        "line": 25,
+        "version": 705,
+        "index": 500
+      },
+      {
+        "id": "764f1ddb-752c-4b1b-8948-25328a12dcad",
+        "line": 29,
+        "version": 705,
+        "index": 595
+      }
+    ]
+  }
+}
