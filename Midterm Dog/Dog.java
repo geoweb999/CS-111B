@@ -27,6 +27,14 @@ public class Dog {
     public boolean isEqual(Dog inDog) {             // return True if both DogID's are equal
         return (this.idNumber == inDog.idNumber);
     }
+
+    public boolean isEqualTo(Dog inDog) {             // return True if both DogID's are equal
+        boolean t = (this.idNumber == inDog.idNumber);
+        boolean u = (this.breed == inDog.breed);
+        boolean v = ((this.age - inDog.age) >= -1.001 && (this.age - inDog.age) <= 1.001);
+        return t && u && v;
+}
+
         
     public boolean sameBreed(Dog inDog) {           // return True if both Breeds are euqal 
         return (this.breed == inDog.breed);
