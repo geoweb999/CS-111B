@@ -45,7 +45,7 @@ public class ConwayWorld {
         for (int r = 0; r < ROWS; r++) {
         	for (int c = 0; c < COLS; c++) {
 				if (grid[r][c].isBorg()) {
-					    grid[r][c] = grid[r][c].BorgForNextGeneration();
+						grid[r][c] = grid[r][c].BorgForNextGeneration();
                 }
             }
 		}
@@ -60,6 +60,10 @@ public class ConwayWorld {
 		
 		// Out with the old, in with the new
 		grid = nextGrid;
+	}
+
+	public AbstractCell getCell(int r, int c, ConwayWorld w) {
+		return grid[r][c];
 	}
 	
 	// Returns true if (r, c) is a valid coordinate, and the cell is alive

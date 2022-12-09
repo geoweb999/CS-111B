@@ -10,8 +10,8 @@ public class ZombieBorgCell extends AbstractBorgCell {
         int age = getAge() + 1;
         setAge(age);
         if (age > DECOMPOSE) {
-            AbstractCell n = new AlternatingCell(this.getRow(), this.getColumn(), this.world);
-            n.setAge(age);
+            AbstractCell n = new ConwayCell(this.getRow(), this.getColumn(), this.world);
+            n.setAge(0);
             n.setIsAlive(true);
             n.setBorg(true);
             return n;

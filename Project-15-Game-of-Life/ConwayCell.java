@@ -19,16 +19,16 @@ public class ConwayCell extends AbstractCell {
 	}
 	
 	public AbstractCell cellForNextGeneration() {
-		ConwayCell next = new ConwayCell(getRow(), getColumn(), world);
-		next.setAge(this.getAge() + 1);
-		if (this.isBorg() && next.getAge() < 10) {
-			next.setBorg(true);
-			next.setIsAlive(true);
+		this.setAge(getAge() + 1);
+		if (this.isBorg() == true && this.getAge() < 10) {
+			this.setIsAlive(true);
+			this.setBorg(true);
+			return this;
 		} else {
-			next.setBorg(false);
-			next.setIsAlive(willBeAliveInNextGeneration());
+			this.setBorg(false);
+			this.setIsAlive(willBeAliveInNextGeneration());
+			return this;
 		}
-		return next;
 	}
 	
 	public AbstractCell BorgForNextGeneration() {
