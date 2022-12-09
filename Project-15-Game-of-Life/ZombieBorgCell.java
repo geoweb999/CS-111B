@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class ZombieBorgCell extends AbstractBorgCell {
 	
@@ -6,26 +7,29 @@ public class ZombieBorgCell extends AbstractBorgCell {
         this.setIsAlive(true);
 	}
 	
-	public  AbstractCell cellForNextGeneration() {
-        // check to see if zombie has decomposed and replace with protected zombie cell (via isBorg)
-        this.setAge(this.getAge() + 1);
-        if (this.getAge() > DECOMPOSE ) {
-            AbstractCell d = new ConwayCell(this.getRow(), this.getColumn(), this.world);
-            d.setIsAlive(true);
-            d.setBorg(true);
-            return d;
-        }
+    public AbstractCell BorgForNextGeneration() {
+        Random random = new Random();
+        int age = getAge() + 1;
+        setAge(age);
+        AbstractCell n;
+        if (age > DECOMPOSE) {
+            int randomChoice = random.nextInt(3);
+            if (randomChoice == 0) {
+                n = new NeverAliveCell(this.getRow(), this.getColumn(), this.world);
+            } else if (randomChoice == 1) {
+                n = new AlwaysAliveCell(this.getRow(), this.getColumn(), this.world);
+            } else {
+                n = new AlternatingCell(this.getRow(), this.getColumn(), this.world);
+            }
+            n.setBorg(true);
+            return n;
+        }           
         return this;
-	}	
+    } 
 		
 	public boolean willBeAliveInNextGeneration() {
 		return true;
 	}
-
-    public void cellAssimilation() {
-        // zombies cannot assimilate 
-    
-    }
         
 	public char displayCharacter() {
 		return getIsAlive() ? '◘' : '◇';

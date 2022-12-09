@@ -21,4 +21,8 @@ public class NeverAliveCell extends AbstractCell {
 	public boolean getIsAlive() {
 		return false;
 	}
+	public AbstractCell BorgForNextGeneration() {
+		return this;
+	}
+
 }

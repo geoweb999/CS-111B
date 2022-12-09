@@ -77,8 +77,11 @@ public abstract class AbstractCell {
 		return count;
 	}
 
+	public AbstractCell BorgForNextGeneration() {
+		return this;
+	}
+
 	
 	public abstract AbstractCell cellForNextGeneration();
 	public abstract boolean willBeAliveInNextGeneration();
-
 }

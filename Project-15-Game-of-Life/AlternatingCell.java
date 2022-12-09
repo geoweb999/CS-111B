@@ -21,4 +21,8 @@ public class AlternatingCell extends AbstractCell {
 	public char displayCharacter() {
 		return getIsAlive() ? '∷' : '*';
 	}
+
+	public AbstractCell BorgForNextGeneration() {
+		return this;
+	}
 }

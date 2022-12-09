@@ -9,14 +9,13 @@
 // After DEATH years, a mature borg turns into a zombie (and is now alive dor conway cells)
 // After DECOMPOSE years, a zombie borg becomes a live Conway cell that cannot be assimilated for 10 years
 // 
-import java.util.Random;
-
 public abstract class AbstractBorgCell extends AbstractCell {
 
     static final int MATURITY = 5;
     static final int PARENT = MATURITY + 5;
     static final int DEATH = PARENT + 20;
     static final int DECOMPOSE = DEATH + 10;
+    static final int BIRTHRATE = 20; // 1 / 20 chance of birth
     
 	public AbstractBorgCell(int r, int c, ConwayWorld w) {
 		super(r, c, w);
@@ -28,28 +27,15 @@ public abstract class AbstractBorgCell extends AbstractCell {
 	public char displayCharacter() {
 		return getIsAlive() ? '■' : '■';
 	}
+    
 
-    public void splitBorg() {
-        int row, col;
-        int min = -1;
-        int max = 2;
-        Random random = new Random();
-        int count = 0;
-        boolean split = false;
-        while (count < 10 && !split) {
-            row = this.getRow() + random.nextInt(max - min) + min;
-	        col = this.getColumn() + random.nextInt(max - min) + min;
-            if (this.world.isValid(row, col) && !this.world.isBorg(row, col)) {
-                AbstractCell n = new BabyBorgCell(row, col, this.world);
-                n.setAge(0);
-                this.world.replaceCell(n);
-                split = true;
-            }
-            count++;
-        }
-    }
 
-    public abstract void cellAssimilation();
-    public abstract AbstractCell cellForNextGeneration();
-    public abstract boolean willBeAliveInNextGeneration();
+	public  AbstractCell cellForNextGeneration() {
+        return this;
+	}	
+
+
+    public  boolean willBeAliveInNextGeneration() {
+        return this.getIsAlive();
+    };
 }
