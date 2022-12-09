@@ -34,6 +34,7 @@ public class Dog {
         boolean v = ((this.age - inDog.age) >= -1.001 && (this.age - inDog.age) <= 1.001);
         return t && u && v;
 }
+
         
     public boolean sameBreed(Dog inDog) {           // return True if both Breeds are euqal 
         return (this.breed == inDog.breed);
