@@ -29,5 +29,9 @@ public class ConwayCell extends AbstractCell {
 			next.setIsAlive(willBeAliveInNextGeneration());
 		}
 		return next;
-	}	
+	}
+	
+	public AbstractCell BorgForNextGeneration() {
+		return this;
+	}
 }

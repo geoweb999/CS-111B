@@ -6,26 +6,22 @@ public class ZombieBorgCell extends AbstractBorgCell {
         this.setIsAlive(true);
 	}
 	
-	public  AbstractCell cellForNextGeneration() {
-        // check to see if zombie has decomposed and replace with protected zombie cell (via isBorg)
-        this.setAge(this.getAge() + 1);
-        if (this.getAge() > DECOMPOSE ) {
-            AbstractCell d = new ConwayCell(this.getRow(), this.getColumn(), this.world);
-            d.setIsAlive(true);
-            d.setBorg(true);
-            return d;
-        }
+    public AbstractCell BorgForNextGeneration() {
+        int age = getAge() + 1;
+        setAge(age);
+        if (age > DECOMPOSE) {
+            AbstractCell n = new AlternatingCell(this.getRow(), this.getColumn(), this.world);
+            n.setAge(age);
+            n.setIsAlive(true);
+            n.setBorg(true);
+            return n;
+        }           
         return this;
-	}	
+    } 
 		
 	public boolean willBeAliveInNextGeneration() {
 		return true;
 	}
-
-    public void cellAssimilation() {
-        // zombies cannot assimilate 
-    
-    }
         
 	public char displayCharacter() {
 		return getIsAlive() ? '◘' : '◇';

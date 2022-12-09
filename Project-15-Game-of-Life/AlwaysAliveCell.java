@@ -21,4 +21,8 @@ public class AlwaysAliveCell extends AbstractCell {
 	public char displayCharacter() {
 		return '+';
 	}
+
+	public AbstractCell BorgForNextGeneration() {
+		return this;
+	}
 }
