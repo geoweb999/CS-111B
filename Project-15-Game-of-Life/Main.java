@@ -35,20 +35,18 @@ class Main {
 			AbstractBorgCell b = new BabyBorgCell(10, 10 + i, world);
 			world.replaceCell(b);
 		}
-        /*
+        
 		// Add a borg cell to a random position
 		row = random.nextInt(15);
 		col = random.nextInt(20);
 		AbstractCell b0 = new BabyBorgCell(row, col, world);
-		
 		world.replaceCell(b0);	
-		*/
-        /* 
-		row = random.nextInt(15);
+		
+    	row = random.nextInt(15);
 		col = random.nextInt(20);
 		AbstractCell b1 = new BabyBorgCell(row, col, world);	
 		world.replaceCell(b1);	
-        */
+
 		// Go!	
 		while (true) {
             clearConsole();      
