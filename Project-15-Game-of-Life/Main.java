@@ -31,8 +31,8 @@ class Main {
 		AbstractCell c = new AlternatingCell(row, col, world);
 		world.replaceCell(c);
 
-        for (int i = 0; i < 2; i++) {
-			AbstractBorgCell b = new BabyBorgCell(10, 9 + i, world);
+        for (int i = 0; i < 1; i++) {
+			AbstractBorgCell b = new BabyBorgCell(10, 10 + i, world);
 			world.replaceCell(b);
 		}
         /*
