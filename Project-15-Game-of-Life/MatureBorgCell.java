@@ -45,27 +45,25 @@ public class MatureBorgCell extends AbstractBorgCell {
         }
     }
     public void cellAssimilation() {
-        // check neighboring cells for assimilation opportunities and randomly spawn a baby borg
+        // check random neighboring cell for assimilation opportunities and randomly spawn a baby borg
         // mature borgs convert adjacent cells to baby borgs
-        int x = this.getRow();
-        int y = this.getColumn();
-        // check each surrounding grid positions for alive cells
+        // check random surrounding grid positions for alive cells (up to 10 tries)
         // (isAlive validates grid coordinates are valid)
         // if alive, then convert to new baby borg
         // don't assimiulate borgs
-        for (int i = -1; i < 2; ++i) {
-            for (int j = -1; j < 2; ++j) {
-                int r = x + i;
-                int c = y + j;
-                // check all cells but current cell
-                if (!((r == x) && (c == y))) {
-                    if (this.world.isAlive(r, c) && !this.world.isBorg(r, c)) {
-                        // assimulate the cell
-                        AbstractCell b = new BabyBorgCell(r, c, this.world);
-                        this.world.replaceCell(b);
-                        return;
-                    }
-                }
+        Random random = new Random();
+        boolean assimilated = false;
+        int count = 0;
+        int row, col;
+        while (count < 10 && !assimilated) {
+            count++;
+            row = this.getRow() + random.nextInt(3) - 1;
+            col = this.getColumn() + random.nextInt(3) - 1;
+            if (this.world.isAlive(row, col) && !this.world.isBorg(row, col)) {
+                AbstractCell n = new BabyBorgCell(row, col, this.world);
+                n.setAge(0);
+                this.world.replaceCell(n);
+                assimilated = true;
             }
         }        
     }  

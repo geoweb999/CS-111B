@@ -28,12 +28,9 @@ public abstract class AbstractBorgCell extends AbstractCell {
 		return getIsAlive() ? '■' : '■';
 	}
     
-
-
 	public  AbstractCell cellForNextGeneration() {
         return this;
 	}	
-
 
     public  boolean willBeAliveInNextGeneration() {
         return this.getIsAlive();

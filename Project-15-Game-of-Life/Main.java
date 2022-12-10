@@ -1,4 +1,5 @@
 import java.util.Random;
+//import java.util.Scanner;
 
 class Main {
  	
@@ -30,24 +31,16 @@ class Main {
 		col = random.nextInt(20);
 		AbstractCell c = new AlternatingCell(row, col, world);
 		world.replaceCell(c);
-
-        for (int i = 0; i < 1; i++) {
-			AbstractBorgCell b = new BabyBorgCell(10, 10 + i, world);
-			world.replaceCell(b);
-		}
-        
+    
 		// Add a borg cell to a random position
 		row = random.nextInt(15);
 		col = random.nextInt(20);
 		AbstractCell b0 = new BabyBorgCell(row, col, world);
 		world.replaceCell(b0);	
-		
-    	row = random.nextInt(15);
-		col = random.nextInt(20);
-		AbstractCell b1 = new BabyBorgCell(row, col, world);	
-		world.replaceCell(b1);	
 
 		// Go!	
+
+		//Scanner scnr = new Scanner(System.in);
 		while (true) {
             clearConsole();      
 			System.out.println(world.displayString());
