@@ -1,7 +1,7 @@
 public class ConwayWorld {
 	
-	static final int ROWS = 15;
-	static final int COLS = 20;
+	static final int ROWS = 25;
+	static final int COLS = 25;
 	
 	private AbstractCell[][] grid = new AbstractCell[ROWS][COLS]; 
 	
@@ -35,7 +35,7 @@ public class ConwayWorld {
 		grid[cell.getRow()][cell.getColumn()] = cell;
 	}
 	
-	// Create the next generation
+	// Create the next generation for Borgs
 	public void advanceToNextGeneration() {
 		AbstractCell[][] nextGrid = new AbstractCell[ROWS][COLS]; 
         // check to see if any Borg assimilated cells
