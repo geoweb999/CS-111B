@@ -2,6 +2,19 @@ import java.util.Scanner;
 
 // NOTE: EXAM ASKS FOR METHOD "ISEQUALTO", WE ASSUME THIS REFERS TO "EQUALS TO" WHICH ONLY CHECKS ID
 public class Main {
+	public static void main(String[] args) {
+        Scanner scnr = new Scanner(System.in);
+        System.out.println("Enter id: ");
+        int id         = scnr.nextInt();
+        String temp = scnr.nextLine();
+        System.out.println("Breed: ");
+        String breed   = scnr.nextLine();
+    //    String temp    = scnr.next();
+        System.out.println("Age (years): ");
+
+
+// NOTE: EXAM ASKS FOR METHOD "ISEQUALTO", WE ASSUME THIS REFERS TO "EQUALS TO" WHICH ONLY CHECKS ID
+public class Main {
 	/**
 	 * @param args
 	 */
@@ -13,6 +26,7 @@ public class Main {
         System.out.print("Breed: ");
         String breed   = scnr.nextLine();
         System.out.print("Age (years): ");
+
         double age     = scnr.nextDouble();
 
         
@@ -32,7 +46,9 @@ public class Main {
         if (d1.compatibleAges(d2)) {
             System.out.println("compatible");
         }
+
         scnr.close();
+
        
     }    
 }
